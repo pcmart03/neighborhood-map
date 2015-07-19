@@ -1,0 +1,19 @@
+{
+  "name": "Neighborhood Map",
+  "version": "0.0.0",
+  "authors": [
+    "Patrick Martin <pcmart03@gmail.com>"
+  ],
+  "description": "Udacity Front End Nano Degree Project Five",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "knockout": "~3.3.0"
+  }
+}
