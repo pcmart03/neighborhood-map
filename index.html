@@ -39,7 +39,9 @@
                   </div>
                   <div id="places-list">
                   <ul class="list-group" data-bind="foreach: placelist">
-                    <li class="list-group-item" data-bind="text: name"></li>
+                    <!-- ko if: map -->
+                    <li class="list-group-item" data-bind=" text: name, click: $parent.hideMarker"></li>
+                    <!-- /ko -->
                   </ul>
                 </div>
               </div>
