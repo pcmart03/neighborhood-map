@@ -12,7 +12,6 @@
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2FaK_v2TxyN4ZiJASoYWuT66WatlC-nM">
     </script>
-    <script type="text/javascript" src="js/map.js"></script>
   </head>
   <body>
       <header class="navbar navbar-default navbar-static-top" role="navigation">
@@ -40,7 +39,9 @@
                   </div>
                   <div id="places-list">
                   <ul class="list-group" data-bind="foreach: placelist">
-                    <li class="list-group-item" data-bind="text: name"></li>
+                    <!-- ko if: map -->
+                    <li class="list-group-item" data-bind=" text: name, click: $parent.hideMarker"></li>
+                    <!-- /ko -->
                   </ul>
                 </div>
               </div>
@@ -58,5 +59,6 @@
     <script src="js/offcanvas.js"></script>
     <script src="js/knockout.js"></script>
     <script src="js/app.min.js"></script>
+  <!--  <script type="text/javascript" src="js/map.min.js"></script> -->
   </body>
 </html>
