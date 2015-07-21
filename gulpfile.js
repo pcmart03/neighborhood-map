@@ -12,13 +12,13 @@ gulp.task('lint', function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src(['lib/js/app/model.js', 'lib/js/app/places.js', 'lib/js/app/viewmodel.js'])
+  return gulp.src(['lib/js/app/places.js', 'lib/js/app/viewmodel.js'])
     .pipe(concat('app.js'))
-    .pipe(gulp.dest('./js/'));
+    .pipe(gulp.dest('./lib/js/app/'));
 });
 
 gulp.task('compress', function() {
-  return gulp.src('js/app.js')
+  return gulp.src('lib/js/app/app.js')
     .pipe(uglify())
     .pipe(rename('app.min.js'))
     .pipe(gulp.dest('./js/'));
