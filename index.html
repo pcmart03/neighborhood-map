@@ -39,9 +39,7 @@
                   </div>
                   <div id="places-list">
                   <ul class="list-group" data-bind="foreach: placelist">
-                    <!-- ko if: map -->
-                    <li class="list-group-item" data-bind=" text: name, click: $parent.hideMarker"></li>
-                    <!-- /ko -->
+                    <li class="list-group-item" data-bind=" text: name, click: removeMarker"></li>
                   </ul>
                 </div>
               </div>
@@ -59,6 +57,6 @@
     <script src="js/offcanvas.js"></script>
     <script src="js/knockout.js"></script>
     <script src="js/app.min.js"></script>
-  <!--  <script type="text/javascript" src="js/map.min.js"></script> -->
+  <script type="text/javascript" src="js/map.min.js"></script>
   </body>
 </html>
