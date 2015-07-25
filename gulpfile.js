@@ -6,7 +6,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat');
 
 gulp.task('lint', function() {
-  return gulp.src('/lib/**/*.js')
+  return gulp.src('lib/app/viewmodel.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });

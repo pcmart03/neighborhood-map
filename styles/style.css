@@ -51,3 +51,7 @@
 .list-group-item:hover {
   background-color: #ABCEFF;
 }
+
+.highlighted {
+  background-color: red;
+}

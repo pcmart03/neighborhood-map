@@ -28,22 +28,22 @@
           </div>
         </div>
       </header>
-        <div class="container-fluid">
+        <div class="container-fluid" id="app-wrapper">
           <div class="row row-offcanvas row-offcanvas-left">
             <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
                 <div>
                   <h2>Key Destinations</h2>
                   <div class="input-group">
                     <span class="input-group-addon" id="searchPlaces"><span class="glyphicon glyphicon-search"></span></span>
-                    <input type="text" class="form-control" placeholder="search" aria-describedby="searchPlaces">
+                    <input type="text" class="form-control" placeholder="search" aria-describedby="searchPlaces" data-bind=" textInput: searchTerm">
                   </div>
+
                   <div id="places-list">
-                  <ul class="list-group" data-bind="foreach: placelist">
-                    <!-- ko if: map -->
-                    <li class="list-group-item" data-bind=" text: name, click: $parent.hideMarker"></li>
-                    <!-- /ko -->
-                  </ul>
+                    <ul class="list-group" data-bind="foreach: markers">
+                      <li class="list-group-item" data-bind="text: title, click: $parent.selectMarker, css: { 'highlighted' : highlight() }"></li>
+                    </ul>
                 </div>
+                <p data-bind="text: searchTerm"></p>
               </div>
             </div>
             <div class="col-xs-12 col-sm-9">
@@ -58,7 +58,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="js/offcanvas.js"></script>
     <script src="js/knockout.js"></script>
-    <script src="js/app.min.js"></script>
-  <!--  <script type="text/javascript" src="js/map.min.js"></script> -->
+    <script src="lib/js/app/app.js"></script>
   </body>
 </html>
