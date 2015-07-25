@@ -39,7 +39,7 @@
                   </div>
 
                   <div id="places-list">
-                    <ul class="list-group" data-bind="foreach: markers">
+                    <ul class="list-group" data-bind="foreach: filteredMarkers">
                       <li class="list-group-item" data-bind="text: title, click: $parent.selectMarker, css: { 'highlighted' : highlight() }"></li>
                     </ul>
                 </div>
