@@ -35,7 +35,7 @@
                   <h2>Key Destinations</h2>
                   <div class="input-group">
                     <span class="input-group-addon" id="searchPlaces"><span class="glyphicon glyphicon-search"></span></span>
-                    <input type="text" class="form-control" placeholder="search" aria-describedby="searchPlaces">
+                    <input type="text" class="form-control" placeholder="search" aria-describedby="searchPlaces" data-bind=" textInput: searchTerm">
                   </div>
 
                   <div id="places-list">
@@ -43,6 +43,7 @@
                       <li class="list-group-item" data-bind="text: title, click: $parent.selectMarker, css: { 'highlighted' : highlight() }"></li>
                     </ul>
                 </div>
+                <p data-bind="text: searchTerm"></p>
               </div>
             </div>
             <div class="col-xs-12 col-sm-9">
