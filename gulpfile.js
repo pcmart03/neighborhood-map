@@ -40,9 +40,8 @@ gulp.task('css', function () {
 gulp.task('build', ['mapcompress', 'css', 'compress']);
 
 gulp.task('watch', function(){
-  gulp.watch('lib/**/*.js', ['scripts', 'mapcompress']);
+  gulp.watch('lib/**/*.js', ['scripts']);
   gulp.watch('styles/*.css', ['css']);
-  gulp.watch('js/app.js', ['compress'])
 });
 
 gulp.task('default', function() {
