@@ -39,11 +39,12 @@
                   </div>
 
                   <div id="places-list">
-                    <ul class="list-group" data-bind="foreach: markers">
+                    <ul class="list-group" data-bind="foreach: filteredMarkers">
                       <li class="list-group-item" data-bind="text: title, click: $parent.selectMarker, css: { 'highlighted' : highlight() }"></li>
                     </ul>
                 </div>
-                <p data-bind="text: searchTerm"></p>
+                <p><strong>Weather: <span data-bind="text: currentTemp"></span>&deg; F</strong></p>
+                <img src="" alt="" data-bind="attr: { src: currentIconURL, alt: currentCondition }">
               </div>
             </div>
             <div class="col-xs-12 col-sm-9">
