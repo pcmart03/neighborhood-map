@@ -1,63 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>My Neighborhood Map</title>
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neighorhod Map</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/foundation.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript"
+    <script src="js/modernizr.js"></script>
+    <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2FaK_v2TxyN4ZiJASoYWuT66WatlC-nM">
     </script>
   </head>
   <body>
-      <header class="navbar navbar-default navbar-static-top" role="navigation">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <!--Button toggles the Key Destinations list on small screens -->
-            <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".sidebar-nav">
-              <span class="sr-only">Toggle places menu</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Explore My Neighborhood</a>
-          </div>
-        </div>
-      </header>
-        <div class="container-fluid" id="app-wrapper">
-          <div class="row row-offcanvas row-offcanvas-left">
-            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-                <div>
-                  <h2>Key Destinations</h2>
-                  <div class="input-group">
-                    <span class="input-group-addon" id="searchPlaces"><span class="glyphicon glyphicon-search"></span></span>
-                    <input type="text" class="form-control" placeholder="search" aria-describedby="searchPlaces" data-bind=" textInput: searchTerm">
-                  </div>
+    <div class="off-canvas-wrap" data-offcanvas id="app-content">
+      <div class="inner-wrap">
+        <nav class="tab-bar">
+          <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon"><span></span></a>
+          </section>
+          <section class="middle tab-bar-section">
+            <h2>Get to Know My Home Town</h2>
+          </section>
+        </nav>
+        <aside class="left-off-canvas-menu">
+          <ul class="off-canvas-list">
+            <li><label>Weather</label><li>
+            <li><a href="http://openweathermap.org/city/4915545"><span data-bind="text: currentTemp"></span>&deg; F <img src="" alt="" data-bind="attr: { src: currentIconURL, alt: currentCondition }"></a></li>
+            <li><label>Places</label></li>
+            <li><input type="text" placeholder="search places" data-bind=" textInput: searchTerm"></li>
+            <li><label>Results</label></li>
+        <!--ko foreach: filteredMarkers -->
+            <li><a href="#" data-bind="text: title, click: $parent.selectMarker,  css: { 'highlighted' : highlight() }"></a></li>
+        <!-- /ko -->
+          </ul>
+        </aside>
+        <section class="main-section" id="map-canvas">
 
-                  <div id="places-list">
-                    <ul class="list-group" data-bind="foreach: filteredMarkers">
-                      <li class="list-group-item" data-bind="text: title, click: $parent.selectMarker, css: { 'highlighted' : highlight() }"></li>
-                    </ul>
-                </div>
-                <p><strong>Weather: <span data-bind="text: currentTemp"></span>&deg; F</strong></p>
-                <img src="" alt="" data-bind="attr: { src: currentIconURL, alt: currentCondition }">
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-9">
-              <div id="map-canvas">
+        </section>
 
-              </div>
-            </div>
-          </div>
-        </div>
+      </div>
+
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="js/offcanvas.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
     <script src="js/knockout.js"></script>
     <script src="lib/js/app/app.js"></script>
   </body>
