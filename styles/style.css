@@ -3,7 +3,7 @@
 }
 #map-canvas {
   width: 100%;
-  height: 100%;
+  height: calc(100% - 2.8125rem);
 }
 .inner-wrap {
   height: 100%;
@@ -11,5 +11,5 @@
 }
 
 .highlighted {
-  color: #FA9E25 !important; 
+  color: #FA9E25 !important;
 }
