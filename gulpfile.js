@@ -6,15 +6,16 @@ var gulp = require('gulp'),
     concat = require('gulp-concat');
 
 gulp.task('lint', function() {
-  return gulp.src('lib/app/viewmodel.js')
+  return gulp.src('lib/js/app/viewmodel.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
 
 gulp.task('scripts', function() {
   return gulp.src(['lib/js/app/places.js', 'lib/js/app/viewmodel.js'])
-    .pipe(concat('app.js'))
-    .pipe(gulp.dest('./lib/js/app/'));
+    .pipe(concat('app.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./js/'));
 });
 
 gulp.task('compress', function() {
@@ -24,12 +25,6 @@ gulp.task('compress', function() {
     .pipe(gulp.dest('./js/'));
 });
 
-gulp.task('mapcompress', function() {
-  return gulp.src('lib/js/google-maps/map.js')
-    .pipe(uglify())
-    .pipe(rename('map.min.js'))
-    .pipe(gulp.dest('./js/'));
-});
 
 gulp.task('css', function () {
   gulp.src('styles/style.css')
@@ -37,13 +32,4 @@ gulp.task('css', function () {
     .pipe(gulp.dest('./css/'));
 });
 
-gulp.task('build', ['mapcompress', 'css', 'compress']);
-
-gulp.task('watch', function(){
-  gulp.watch('lib/**/*.js', ['scripts']);
-  gulp.watch('styles/*.css', ['css']);
-});
-
-gulp.task('default', function() {
-  // place code for your default task here
-});
+gulp.task('build', ['scripts', 'css']);
