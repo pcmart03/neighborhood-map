@@ -2,6 +2,9 @@
 
 A live version of the project is available [here](http://pcmart03.github.io/neighborhood-map/).
 
+## note
+The calls to the yelp API no longer work. I'm probably not going to come back to fix them.
+
 ## Using the Site
 
 * Clicking on marker will center the map on the marker and open an info window containing the phone number, address and yelp rating.
